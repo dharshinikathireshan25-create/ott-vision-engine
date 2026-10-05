@@ -56,7 +56,7 @@ export function analyzeUser(input: UserInput): Analysis {
     return Math.round(d * 1000) / 1000;
   });
   const best = distances.indexOf(Math.min(...distances));
-  const confidence = Math.max(55, Math.min(98, Math.round(98 - distances[best] * 17.5)));
+  const confidence = Math.max(55, Math.min(98, Math.round(98 - distances[best]! * 17.5)));
   return { input, segment: SEGMENTS[best]!, distances, confidence, features: f };
 }
 
