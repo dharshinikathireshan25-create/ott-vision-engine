@@ -142,8 +142,8 @@ function Result() {
           <div className="space-y-2">
             {SEGMENTS.map((seg) => (
               <div key={seg.id}>
-                <div className="flex justify-between text-xs"><span>C{seg.id} · {seg.short}</span><span className="font-mono">{a.distances[seg.id].toFixed(2)}</span></div>
-                <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-muted"><div className="h-full" style={{ width: `${Math.min(100, a.distances[seg.id] * 20)}%`, background: segColor(seg.id), opacity: seg.id === s.id ? 1 : 0.4 }} /></div>
+                <div className="flex justify-between text-xs"><span>C{seg.id} · {seg.short}</span><span className="font-mono">{a.distances[seg.id]!.toFixed(2)}</span></div>
+                <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-muted"><div className="h-full" style={{ width: `${Math.min(100, a.distances[seg.id]! * 20)}%`, background: segColor(seg.id), opacity: seg.id === s.id ? 1 : 0.4 }} /></div>
               </div>
             ))}
           </div>

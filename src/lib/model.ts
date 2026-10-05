@@ -57,7 +57,7 @@ export function analyzeUser(input: UserInput): Analysis {
   });
   const best = distances.indexOf(Math.min(...distances));
   const confidence = Math.max(55, Math.min(98, Math.round(98 - distances[best] * 17.5)));
-  return { input, segment: SEGMENTS[best], distances, confidence, features: f };
+  return { input, segment: SEGMENTS[best]!, distances, confidence, features: f };
 }
 
 export interface Title { title: string; genre: string; duration: string; reason: string; type: "Movie" | "Series" }
@@ -126,7 +126,7 @@ const raw: [number, number, number, number, number, string, number][] = [
 
 export const USERS: MockUser[] = raw.map((r, i) => ({
   user_id: `USR-${1001 + i}`, watch_time_hours: r[0], avg_session_mins: r[1], visit_frequency: r[2],
-  genre_diversity: r[3], weekend_usage: r[4], top_genre: r[5], cluster: r[6], segment_name: SEGMENTS[r[6]].name,
+  genre_diversity: r[3], weekend_usage: r[4], top_genre: r[5], cluster: r[6], segment_name: SEGMENTS[r[6]]!.name,
   confidence: 78 + ((i * 7) % 19),
 }));
 

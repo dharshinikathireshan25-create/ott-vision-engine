@@ -27,7 +27,7 @@ function Evaluation() {
         {facts.map(([k, v], i) => (
           <div key={k} className={`panel p-4 ${i === 2 || i === 3 ? "ring-1 ring-primary/50" : ""}`}>
             <div className="text-xs text-muted-foreground">{k}</div>
-            <div className={`mt-1 font-display font-bold ${v.length < 7 ? "text-3xl text-brand" : "text-base"}`}>{v}</div>
+            <div className={`mt-1 font-display font-bold ${(v ?? "").length < 7 ? "text-3xl text-brand" : "text-base"}`}>{v}</div>
           </div>
         ))}
       </div>

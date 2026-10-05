@@ -29,7 +29,7 @@ function Recs() {
   const [override, setOverride] = useState<number | null>(null);
   const segId = override ?? analysis?.segment.id ?? 0;
   const a: Analysis = override !== null || !analysis
-    ? { ...(analysis ?? analyzeUser(DEMO_INPUT)), segment: SEGMENTS[segId] }
+    ? { ...(analysis ?? analyzeUser(DEMO_INPUT)), segment: SEGMENTS[segId]! }
     : analysis;
   const items = recommend(a);
 

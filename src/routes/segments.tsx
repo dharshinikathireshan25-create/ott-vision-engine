@@ -65,7 +65,7 @@ function Segments() {
             <div className="flex items-center justify-between p-6 pb-4">
               <div>
                 <div className="font-mono text-xs" style={{ color: segColor(view) }}>CLUSTER {view} · SAMPLE USERS</div>
-                <h3 className="text-lg font-bold">{SEGMENTS[view].name}</h3>
+                <h3 className="text-lg font-bold">{SEGMENTS[view]!.name}</h3>
               </div>
               <button onClick={() => setView(null)} className="rounded-md p-2 hover:bg-secondary" aria-label="Close"><X className="h-5 w-5" /></button>
             </div>
