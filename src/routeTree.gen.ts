@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalyzerRouteImport } from './routes/analyzer'
+import { Route as ApiMonitorRouteImport } from './routes/api-monitor'
+import { Route as ArchitectureRouteImport } from './routes/architecture'
+import { Route as EvaluationRouteImport } from './routes/evaluation'
+import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as SegmentsRouteImport } from './routes/segments'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalyzerRoute = AnalyzerRouteImport.update({
+  id: '/analyzer',
+  path: '/analyzer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMonitorRoute = ApiMonitorRouteImport.update({
+  id: '/api-monitor',
+  path: '/api-monitor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArchitectureRoute = ArchitectureRouteImport.update({
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EvaluationRoute = EvaluationRouteImport.update({
+  id: '/evaluation',
+  path: '/evaluation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecommendationsRoute = RecommendationsRouteImport.update({
+  id: '/recommendations',
+  path: '/recommendations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SegmentsRoute = SegmentsRouteImport.update({
+  id: '/segments',
+  path: '/segments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analyzer': typeof AnalyzerRoute
+  '/api-monitor': typeof ApiMonitorRoute
+  '/architecture': typeof ArchitectureRoute
+  '/evaluation': typeof EvaluationRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/segments': typeof SegmentsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analyzer': typeof AnalyzerRoute
+  '/api-monitor': typeof ApiMonitorRoute
+  '/architecture': typeof ArchitectureRoute
+  '/evaluation': typeof EvaluationRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/segments': typeof SegmentsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analyzer': typeof AnalyzerRoute
+  '/api-monitor': typeof ApiMonitorRoute
+  '/architecture': typeof ArchitectureRoute
+  '/evaluation': typeof EvaluationRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/segments': typeof SegmentsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analyzer'
+    | '/api-monitor'
+    | '/architecture'
+    | '/evaluation'
+    | '/recommendations'
+    | '/segments'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analyzer'
+    | '/api-monitor'
+    | '/architecture'
+    | '/evaluation'
+    | '/recommendations'
+    | '/segments'
+  id:
+    | '__root__'
+    | '/'
+    | '/analyzer'
+    | '/api-monitor'
+    | '/architecture'
+    | '/evaluation'
+    | '/recommendations'
+    | '/segments'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyzerRoute: typeof AnalyzerRoute
+  ApiMonitorRoute: typeof ApiMonitorRoute
+  ArchitectureRoute: typeof ArchitectureRoute
+  EvaluationRoute: typeof EvaluationRoute
+  RecommendationsRoute: typeof RecommendationsRoute
+  SegmentsRoute: typeof SegmentsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analyzer': {
+      id: '/analyzer'
+      path: '/analyzer'
+      fullPath: '/analyzer'
+      preLoaderRoute: typeof AnalyzerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api-monitor': {
+      id: '/api-monitor'
+      path: '/api-monitor'
+      fullPath: '/api-monitor'
+      preLoaderRoute: typeof ApiMonitorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/architecture': {
+      id: '/architecture'
+      path: '/architecture'
+      fullPath: '/architecture'
+      preLoaderRoute: typeof ArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/evaluation': {
+      id: '/evaluation'
+      path: '/evaluation'
+      fullPath: '/evaluation'
+      preLoaderRoute: typeof EvaluationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recommendations': {
+      id: '/recommendations'
+      path: '/recommendations'
+      fullPath: '/recommendations'
+      preLoaderRoute: typeof RecommendationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/segments': {
+      id: '/segments'
+      path: '/segments'
+      fullPath: '/segments'
+      preLoaderRoute: typeof SegmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyzerRoute: AnalyzerRoute,
+  ApiMonitorRoute: ApiMonitorRoute,
+  ArchitectureRoute: ArchitectureRoute,
+  EvaluationRoute: EvaluationRoute,
+  RecommendationsRoute: RecommendationsRoute,
+  SegmentsRoute: SegmentsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
