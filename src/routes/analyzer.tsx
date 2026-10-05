@@ -128,7 +128,7 @@ function Result() {
       <div className="mt-5 grid gap-5 md:grid-cols-2">
         <div className="h-64">
           <ResponsiveContainer>
-            <RadarChart data={radar} outerRadius="72%">
+            <RadarChart data={radar} outerRadius="62%">
               <PolarGrid stroke="var(--border)" />
               <PolarAngleAxis dataKey="f" tick={{ fill: "var(--muted-foreground)", fontSize: 11 }} />
               <Radar name="Segment centroid" dataKey="seg" stroke={segColor(s.id)} fill={segColor(s.id)} fillOpacity={0.2} />
